@@ -90,10 +90,10 @@ func (t tester) Validate(fallback bool, challenge string, validate string, secco
             return false
         }
 
-        data := ValidateResp{}
-        json.NewDecoder(resp.Body).Decode(&data)
+        result := ValidateResp{}
+        json.NewDecoder(resp.Body).Decode(&result)
 
-        return Md5(seccode) == data.SecCode
+        return Md5(seccode) == result.SecCode
     }
 
 }
